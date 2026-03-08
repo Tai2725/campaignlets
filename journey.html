@@ -1,0 +1,180 @@
+import React from 'react';
+import { Megaphone, Globe, FileText, Database, Target, Users, BookOpen, UserCheck, MessageCircle, HeartHandshake, CheckCircle2, TrendingUp, Sparkles, PhoneCall } from 'lucide-react';
+
+const FlowChart = () => {
+  const steps = [
+    {
+      id: 1,
+      title: "Tiếp Cận (Acquisition)",
+      description: "Chạy quảng cáo (QC) dựa theo chiến lược của từng chiến dịch. Lưu lượng khách hàng sẽ được trỏ về Messenger để chat hoặc trỏ trực tiếp về Website trung tâm.",
+      color: "blue",
+      tags: [
+        { icon: <Megaphone size={14} />, text: "QC Đa Kênh" },
+        { icon: <MessageCircle size={14} />, text: "Điều hướng Messenger" },
+        { icon: <Globe size={14} />, text: "Traffic Website" }
+      ]
+    },
+    {
+      id: 2,
+      title: "Thu Thập Thông Tin & Phân Loại (Lead Gen)",
+      description: "Khách hàng vào Website xem thông tin. Trọng tâm là form đăng ký thu thập dữ liệu khách hàng. Hệ thống tự động phân luồng:",
+      color: "purple",
+      subSections: [
+        {
+          title: "Học viên (TOEIC/IELTS)",
+          content: "Điền form đăng ký -> Chuyển qua làm bài Test thực tế online để đánh giá năng lực dựa theo mục tiêu.",
+          icon: <FileText size={16} className="text-purple-600" />
+        },
+        {
+          title: "Phụ huynh (Lớp trẻ em)",
+          content: "Click link riêng biệt -> Để lại SĐT/Zalo -> Trung tâm chủ động gọi điện/nhắn tin tư vấn.",
+          icon: <PhoneCall size={16} className="text-purple-600" />
+        }
+      ],
+      tags: [
+        { icon: <CheckCircle2 size={14} />, text: "Điền Form Website" },
+        { icon: <Target size={14} />, text: "Thi Test Năng Lực" },
+        { icon: <Users size={14} />, text: "Thu thập SĐT/Zalo" }
+      ]
+    },
+    {
+      id: 3,
+      title: "Vận Hành Dữ Liệu Cốt Lõi (Core CRM)",
+      description: <><strong>Tài sản quý giá nhất</strong>: Toàn bộ thông tin được lưu trữ tập trung, dễ tìm kiếm và truy xuất. Data này được tái sử dụng liên tục trong quá trình CSKH: Làm hồ sơ cá nhân hoá khi dạy, nhập điểm theo quỹ phát triển của học sinh, tính toán thời gian trung bình để đạt Aim.</>,
+      color: "yellow",
+      tags: [
+        { icon: <Database size={14} />, text: "Lưu trữ Data Khách Hàng" },
+        { icon: <UserCheck size={14} />, text: "Hồ Sơ Cá Nhân Hoá" },
+        { icon: <TrendingUp size={14} />, text: "Theo Dõi Quỹ Phát Triển" }
+      ]
+    },
+    {
+      id: 4,
+      title: "Đánh Giá & Tư Vấn Chuyên Sâu (Assessment)",
+      description: "Sử dụng kịch bản tư vấn riêng biệt dựa trên tệp khách hàng đã thu thập:",
+      color: "green",
+      subSections: [
+        {
+          title: "Học viên (TOEIC/IELTS)",
+          content: "Trả bài test chấm tự động -> Giảng viên tư vấn 1-1 chỉ ra thiếu sót -> Đánh giá điểm A và vạch lộ trình thời gian đạt Aim -> Gửi file tổng hợp qua Mess/Zalo.",
+          icon: <Target size={16} className="text-green-600" />
+        },
+        {
+          title: "Phụ huynh (Lớp trẻ em)",
+          content: "Tư vấn giải đáp -> Đưa Testimonials -> Cam kết cải thiện cảm xúc, kỹ năng, tinh thần -> Đưa ra mức giá cực kỳ ưu đãi (Key chốt sale).",
+          icon: <HeartHandshake size={16} className="text-green-600" />
+        }
+      ],
+      tags: [
+        { icon: <FileText size={14} />, text: "Trả Điểm Tự Động" },
+        { icon: <UserCheck size={14} />, text: "Tư Vấn 1-1" },
+        { icon: <Sparkles size={14} />, text: "Báo Giá Ưu Đãi" }
+      ]
+    },
+    {
+      id: 5,
+      title: "Trải Nghiệm, Chốt Sale & Mở Rộng (Close & Scale)",
+      description: "Kêu gọi khách hàng đến lớp học thử miễn phí. Nếu ưng ý sẽ tiến hành đóng học phí và đi học trực tiếp. Liên tục sáng tạo sản phẩm, khoá học mới.",
+      color: "red",
+      alertInfo: "Tips nhân sự: Lớp trẻ em nếu thiếu nguồn lực, có thể kêu gọi, training sinh viên/bạn trẻ làm part-time để giao lưu, rèn luyện tiếng Anh với các bé.",
+      tags: [
+        { icon: <BookOpen size={14} />, text: "Học Thử Miễn Phí" },
+        { icon: <CheckCircle2 size={14} />, text: "Đóng Học Phí" },
+        { icon: <Users size={14} />, text: "Training Trợ Giảng Part-time" },
+        { icon: <Sparkles size={14} />, text: "R&D Khoá Mới" }
+      ]
+    }
+  ];
+
+  const getColorClasses = (color) => {
+    const classes = {
+      blue: { bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-500', numBg: 'bg-blue-100', numText: 'text-blue-600', tagBg: 'bg-blue-50', tagText: 'text-blue-600', tagBorder: 'border-blue-200' },
+      purple: { bg: 'bg-purple-50', text: 'text-purple-700', border: 'border-purple-500', numBg: 'bg-purple-100', numText: 'text-purple-600', tagBg: 'bg-purple-50', tagText: 'text-purple-600', tagBorder: 'border-purple-200' },
+      yellow: { bg: 'bg-yellow-50', text: 'text-yellow-700', border: 'border-yellow-500', numBg: 'bg-yellow-100', numText: 'text-yellow-600', tagBg: 'bg-yellow-50', tagText: 'text-yellow-700', tagBorder: 'border-yellow-200' },
+      green: { bg: 'bg-green-50', text: 'text-green-700', border: 'border-green-500', numBg: 'bg-green-100', numText: 'text-green-600', tagBg: 'bg-green-50', tagText: 'text-green-600', tagBorder: 'border-green-200' },
+      red: { bg: 'bg-red-50', text: 'text-red-700', border: 'border-red-500', numBg: 'bg-red-100', numText: 'text-red-600', tagBg: 'bg-red-50', tagText: 'text-red-600', tagBorder: 'border-red-200' }
+    };
+    return classes[color];
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 font-sans">
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center mb-10">
+          <h1 className="text-3xl font-bold text-gray-800 mb-2">Quy Trình Tuyển Sinh & CSKH Trung Tâm</h1>
+          <p className="text-gray-500">Hệ thống hoá từ Marketing, Thu thập Data đến Chốt Sale</p>
+        </div>
+
+        <div className="space-y-4">
+          {steps.map((step, index) => {
+            const colors = getColorClasses(step.color);
+            return (
+              <div key={step.id} className="relative">
+                {/* Arrow connecting cards */}
+                {index !== 0 && (
+                  <div className="absolute -top-6 left-12 w-0.5 h-6 bg-gray-200">
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-3 h-3 text-gray-300">
+                      ▼
+                    </div>
+                  </div>
+                )}
+
+                <div className={`bg-white rounded-xl shadow-sm border-l-4 ${colors.border} p-5 md:p-6 flex flex-col md:flex-row gap-5 items-start transition-all hover:shadow-md`}>
+                  
+                  {/* Number Indicator */}
+                  <div className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl ${colors.numBg} ${colors.numText}`}>
+                    {step.id}
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex-grow w-full">
+                    <h2 className="text-xl font-bold text-gray-800 mb-2">{step.title}</h2>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4">{step.description}</p>
+                    
+                    {/* Subsections (For branching logic like Students vs Parents) */}
+                    {step.subSections && (
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        {step.subSections.map((sub, idx) => (
+                          <div key={idx} className="bg-gray-50 rounded-lg p-3 border border-gray-100">
+                            <div className="flex items-center gap-2 mb-1.5">
+                              {sub.icon}
+                              <h3 className="font-semibold text-gray-800 text-sm">{sub.title}</h3>
+                            </div>
+                            <p className="text-gray-600 text-xs leading-relaxed">{sub.content}</p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Alert Info for special notes */}
+                    {step.alertInfo && (
+                      <div className="bg-orange-50 border border-orange-100 text-orange-700 text-xs p-3 rounded-lg mb-4 flex gap-2 items-start">
+                        <Users size={16} className="flex-shrink-0 mt-0.5" />
+                        <p>{step.alertInfo}</p>
+                      </div>
+                    )}
+
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      {step.tags.map((tag, tagIndex) => (
+                        <span 
+                          key={tagIndex} 
+                          className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border ${colors.tagBg} ${colors.tagText} ${colors.tagBorder}`}
+                        >
+                          {tag.icon}
+                          {tag.text}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default FlowChart;

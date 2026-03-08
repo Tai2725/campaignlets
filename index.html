@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LETS English - Nội bộ</title>
+    <meta name="description" content="Công cụ nội bộ LETS English - Quản lý chiến dịch marketing">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="config.js"></script>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Inter',sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh}
+
+        /* Header */
+        .header{background:linear-gradient(135deg,#0f172a,#1e293b);border-bottom:1px solid rgba(255,255,255,.06);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+        .header-left{display:flex;align-items:center;gap:14px}
+        .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#3b82f6,#1d4ed8);display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;font-weight:900;letter-spacing:-0.5px;box-shadow:0 4px 16px rgba(59,130,246,.3)}
+        .brand{display:flex;flex-direction:column}
+        .brand-name{font-size:18px;font-weight:800;color:#fff;letter-spacing:-.5px}
+        .brand-name span{color:#60a5fa}
+        .brand-tag{font-size:11px;color:#64748b;font-weight:500;text-transform:uppercase;letter-spacing:1px}
+        .header-badge{background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.2);color:#f87171;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:600;display:flex;align-items:center;gap:5px;letter-spacing:.3px}
+
+        /* Hero */
+        .hero{position:relative;padding:60px 24px 40px;text-align:center;overflow:hidden}
+        .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(59,130,246,.12) 0%,transparent 60%);pointer-events:none}
+        .hero-icon{width:80px;height:80px;border-radius:20px;background:linear-gradient(135deg,rgba(59,130,246,.15),rgba(59,130,246,.05));border:1px solid rgba(59,130,246,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:32px;color:#60a5fa;position:relative}
+        .hero-icon::after{content:'';position:absolute;inset:-4px;border-radius:24px;background:linear-gradient(135deg,rgba(59,130,246,.2),transparent);z-index:-1;filter:blur(8px)}
+        .hero h1{font-size:32px;font-weight:800;color:#fff;margin-bottom:8px;letter-spacing:-.5px}
+        .hero h1 span{background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .hero p{font-size:15px;color:#64748b;max-width:500px;margin:0 auto;line-height:1.6}
+
+        /* Section Title */
+        .section-title{padding:0 24px;max-width:1200px;margin:0 auto 16px;display:flex;align-items:center;justify-content:space-between}
+        .section-title h2{font-size:16px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;display:flex;align-items:center;gap:8px}
+        .section-title h2 i{color:#3b82f6}
+        .campaign-count{background:rgba(59,130,246,.1);color:#60a5fa;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600}
+
+        /* Campaign Grid */
+        .campaigns-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:20px;padding:0 24px 60px;max-width:1200px;margin:0 auto}
+
+        /* Campaign Card */
+        .campaign-card{background:linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden;transition:all .4s cubic-bezier(.4,0,.2,1);position:relative}
+        .campaign-card:hover{border-color:rgba(59,130,246,.3);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+        .campaign-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#3b82f6,#8b5cf6,#ec4899);border-radius:18px 18px 0 0}
+
+        .card-header{padding:24px 24px 16px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+        .card-icon{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,#3b82f6,#1d4ed8);display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff;flex-shrink:0;box-shadow:0 4px 16px rgba(59,130,246,.25)}
+        .card-status{display:flex;align-items:center;gap:5px;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:600}
+        .status-active{background:rgba(16,185,129,.12);color:#34d399;border:1px solid rgba(16,185,129,.2)}
+        .status-active .dot{width:6px;height:6px;border-radius:50%;background:#34d399;animation:pulse-dot 2s infinite}
+        @keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.4}}
+
+        .card-body{padding:0 24px 20px}
+        .card-title{font-size:20px;font-weight:700;color:#fff;margin-bottom:4px;letter-spacing:-.3px}
+        .card-desc{font-size:13px;color:#64748b;line-height:1.6;margin-bottom:16px}
+        .card-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+        .meta-tag{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:5px 12px;border-radius:8px;font-size:11px;color:#94a3b8;display:flex;align-items:center;gap:5px;font-weight:500}
+        .meta-tag i{font-size:10px;color:#64748b}
+
+        .card-actions{padding:0 24px 24px;display:flex;gap:10px}
+        .btn-action{flex:1;padding:12px 16px;border-radius:12px;font-size:13px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:7px;text-decoration:none}
+        .btn-review{background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:#fff;border:none;box-shadow:0 4px 16px rgba(59,130,246,.25)}
+        .btn-review:hover{box-shadow:0 6px 24px rgba(59,130,246,.4);transform:translateY(-1px)}
+        .btn-admin{background:rgba(255,255,255,.06);color:#94a3b8;border:1px solid rgba(255,255,255,.1)}
+        .btn-admin:hover{background:rgba(255,255,255,.1);color:#e2e8f0;border-color:rgba(255,255,255,.2)}
+
+        /* Divider */
+        .divider{max-width:1200px;margin:0 auto 40px;padding:0 24px}
+        .divider-line{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent)}
+
+        /* Footer */
+        .footer{text-align:center;padding:24px;border-top:1px solid rgba(255,255,255,.06);color:#475569;font-size:12px}
+        .footer a{color:#64748b;text-decoration:none;transition:color .2s}
+        .footer a:hover{color:#94a3b8}
+        .footer .org{color:#64748b;font-weight:600}
+
+        /* Scrollbar */
+        ::-webkit-scrollbar{width:6px}
+        ::-webkit-scrollbar-track{background:transparent}
+        ::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:3px}
+
+        @media(max-width:768px){
+            .hero{padding:40px 20px 30px}
+            .hero h1{font-size:24px}
+            .campaigns-grid{grid-template-columns:1fr;padding:0 16px 40px}
+            .card-actions{flex-direction:column}
+            .header{padding:12px 16px}
+            .section-title{padding:0 16px}
+            .divider{padding:0 16px}
+            .header-badge{display:none}
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">LE</div>
+            <div class="brand">
+                <div class="brand-name">LETS <span>English</span></div>
+                <div class="brand-tag">Internal Tools</div>
+            </div>
+        </div>
+        <div class="header-badge"><i class="fa-solid fa-lock"></i> Chỉ dành cho nội bộ</div>
+    </header>
+
+    <div class="hero">
+        <div class="hero-icon"><i class="fa-solid fa-bullhorn"></i></div>
+        <h1>Quản lý <span>Chiến dịch</span></h1>
+        <p>Trung tâm quản lý nội bộ các chiến dịch marketing, review tài liệu và theo dõi phản hồi của LETS English.</p>
+    </div>
+
+    <div class="divider"><div class="divider-line"></div></div>
+
+    <div class="section-title">
+        <h2><i class="fa-solid fa-folder-open"></i> Chiến dịch</h2>
+        <span class="campaign-count">1 chiến dịch</span>
+    </div>
+
+    <div class="campaigns-grid">
+
+        <!-- Campaign Card 1 -->
+        <div class="campaign-card">
+            <div class="card-header">
+                <div class="card-icon"><i class="fa-solid fa-rocket"></i></div>
+                <div class="card-status status-active">
+                    <span class="dot"></span> Đang hoạt động
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="card-title">Campaign chính - 05/03/26</div>
+                <div class="card-desc">Chiến lược "Boutique Center" — Tối ưu nội tại, bứt phá doanh thu. Kế hoạch thực thi marketing đa kênh cho LETS English.</div>
+                <div class="card-meta">
+                    <span class="meta-tag"><i class="fa-regular fa-calendar"></i> 05/03/2026</span>
+                    <span class="meta-tag"><i class="fa-solid fa-file-lines"></i> Action Plan</span>
+                    <span class="meta-tag"><i class="fa-solid fa-pen-ruler"></i> Review Tool</span>
+                </div>
+            </div>
+            <div class="card-actions">
+                <a href="review.html" class="btn-action btn-review"><i class="fa-solid fa-pen-ruler"></i> Review & Comment</a>
+                <a href="admin.html" class="btn-action btn-admin"><i class="fa-solid fa-shield-halved"></i> Admin Panel</a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <span class="org">LETS English</span> &mdash; Trung Tâm Anh Ngữ Trí Thức Việt &bull; Hệ thống nội bộ &copy; 2026
+        <span style="display:block;margin-top:4px;color:#475569;font-size:10px" id="app-version"></span>
+    </footer>
+    <script>
+        const vEl = document.getElementById('app-version');
+        if (vEl && typeof APP_CONFIG !== 'undefined') vEl.textContent = 'v' + APP_CONFIG.version;
+    </script>
+
+</body>
+</html>
