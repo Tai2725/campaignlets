@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+/* ═══ Animations ═══ */
+@keyframes auth-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes slide-up {
+  from {
+    transform: translateX(-50%) translateY(100px);
+  }
+  to {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-6px);
+  }
+  40%,
+  80% {
+    transform: translateX(6px);
+  }
+}
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes fab-pulse {
+  0%,
+  100% {
+    box-shadow: 0 6px 24px rgba(239, 68, 68, 0.5);
+  }
+  50% {
+    box-shadow: 0 6px 32px rgba(239, 68, 68, 0.8);
+  }
+}
+
+/* ═══ Animation utilities ═══ */
+.animate-auth-in {
+  animation: auth-in 0.5s ease-out;
+}
+.animate-modal-in {
+  animation: modal-in 0.3s ease-out;
+}
+.animate-slide-up {
+  animation: slide-up 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.animate-shake {
+  animation: shake 0.4s;
+}
+.animate-pulse-dot {
+  animation: pulse-dot 2s infinite;
+}
+.animate-spin {
+  animation: spin 0.7s linear infinite;
+}
+.animate-fab-pulse {
+  animation: fab-pulse 2s infinite;
+}
+
+/* ═══ Scrollbar ═══ */
+:-webkit-scrollbar {
+  width: 6px;
+}
+:-webkit-scrollbar-track {
+  background: transparent;
+}
+:-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+/* ═══ Body ═══ */
+body {
+  font-family: "Inter", sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+  min-height: 100vh;
+}
+
+/* ═══ Collapse animation ═══ */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
